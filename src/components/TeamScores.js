@@ -5,20 +5,42 @@ export const TeamScores = () => {
         <div className="team-scores">
             <div className="team1">
                 <input placeholder="Equipe 1"></input>
-                <p>0</p>
-                <h4>Score</h4>
+                <div>
+                    <div className="penalties">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div className="scoreboard">
+                        <p>0</p>
+                        <h3>Score</h3>
+                    </div>
+                </div>
                 <div className="score-btns">
-                    <button>+</button>
-                    <button>-</button>
+                    <button><span>+</span></button>
+                    <button><span>-</span></button>
                 </div>
             </div>
             <div className="team2">
                 <input placeholder="Equipe 2"></input>
-                <p>0</p>
-                <h4>Score</h4>
+                <div>
+                    <div className="scoreboard">
+                        <p>0</p>
+                        <h3>Score</h3>
+                    </div>
+                    <div className="penalties">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
                 <div className="score-btns">
-                    <button>+</button>
-                    <button>-</button>
+                    <button><span>+</span></button>
+                    <button><span>-</span></button>
                 </div>
             </div>
         </div>

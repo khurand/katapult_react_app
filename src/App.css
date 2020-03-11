@@ -28,12 +28,44 @@
   width: 100%;
 }
 
+#root .header input {
+  border-radius: 50px;
+  background: transparent;
+  border: 2px solid #1cdfc4;
+  color: white;
+  height: 40px;
+  padding-left: 10px;
+  width: 150px;
+  font-size: 1rem;
+}
+
+#root .header ::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .header :-ms-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .header ::-ms-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .header ::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
 #root .header .fa {
   font-size: 2rem;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
   color: #1cdfc4;
+  margin-right: 5px;
 }
 
 #root .header .fa:hover, #root .header .fa:focus {
@@ -41,17 +73,30 @@
           transform: rotate(180deg);
 }
 
+#root .header .sub-menu {
+  display: none;
+}
+
 #root .container {
   background-color: #232b4e;
-  height: 80vh;
+  height: 85vh;
   width: 100vw;
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 #root .container .main-timer {
   font-size: 4rem;
   width: 100%;
-  height: 20vh;
+  height: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,7 +110,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 10px;
+  padding-bottom: 30px;
 }
 
 #root .container .main-timer .timer-button {
@@ -88,7 +133,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 20vh;
+  height: 40%;
   width: 100%;
 }
 
@@ -101,9 +146,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-right: 1rem;
   font-size: 2rem;
   padding: 5px;
@@ -120,12 +164,29 @@
   width: 100%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background-color: #c1c1c1;
-  padding: 5px;
+  padding: 5px 0px 70px 0;
 }
 
 #root .container .per-ses-timer .periodes ul li {
   list-style: none;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0.3;
+}
+
+#root .container .per-ses-timer .periodes ul li:hover, #root .container .per-ses-timer .periodes ul li:focus, #root .container .per-ses-timer .periodes ul li:active {
+  border: 2px solid #1acdb4;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  border-radius: 4px;
+  color: white;
+  opacity: 1;
 }
 
 #root .container .per-ses-timer .sessions-timer {
@@ -165,6 +226,10 @@
   font-size: 2rem;
 }
 
+#root .container .per-ses-timer .sessions-timer .plus-minus p {
+  padding: 1rem 0.5rem 0 0.5rem;
+}
+
 #root .container .per-ses-timer .sessions-timer .plus-minus .val-min-buttons,
 #root .container .per-ses-timer .sessions-timer .plus-minus .val-sec-buttons {
   list-style: none;
@@ -172,7 +237,7 @@
 
 #root .container .per-ses-timer .sessions-timer .plus-minus .val-min-buttons li,
 #root .container .per-ses-timer .sessions-timer .plus-minus .val-sec-buttons li {
-  border: 2px solid white;
+  border: 2px solid #1acdb4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -185,6 +250,7 @@
   width: 50px;
   font-size: 1rem;
   margin-top: 10px;
+  border-radius: 50px;
 }
 
 #root .container .per-ses-timer .sessions-timer .sessions-button {
@@ -199,7 +265,7 @@
 }
 
 #root .container .team-scores {
-  height: 35vh;
+  height: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -212,37 +278,78 @@
   margin-top: 20px;
 }
 
-#root .container .team-scores .team1 .score-btns,
-#root .container .team-scores .team2 .score-btns {
+#root .container .team-scores .team1,
+#root .container .team-scores .team2 {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#root .container .team-scores .team1 .score-btns button,
-#root .container .team-scores .team2 .score-btns button {
-  width: 70px;
-  margin-left: 10px;
-  height: 30px;
-  font-size: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-weight: bold;
-  border-radius: 5px;
 }
 
-#root .container .team-scores .team1,
-#root .container .team-scores .team2 {
-  border: 1px solid yellow;
-  height: 100%;
+#root .container .team-scores .team1 input,
+#root .container .team-scores .team2 input {
+  height: 40px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  background: transparent;
+  border: 2px solid #1cdfc4;
+  padding: 0px 10px;
+  color: white;
+  width: 150px;
+}
+
+#root .container .team-scores .team1 ::-webkit-input-placeholder,
+#root .container .team-scores .team2 ::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .container .team-scores .team1 :-ms-input-placeholder,
+#root .container .team-scores .team2 :-ms-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .container .team-scores .team1 ::-ms-input-placeholder,
+#root .container .team-scores .team2 ::-ms-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .container .team-scores .team1 ::placeholder,
+#root .container .team-scores .team2 ::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+#root .container .team-scores .team1 div,
+#root .container .team-scores .team2 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+#root .container .team-scores .team1 div .scoreboard,
+#root .container .team-scores .team2 div .scoreboard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,21 +357,115 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+#root .container .team-scores .team1 div .scoreboard p,
+#root .container .team-scores .team2 div .scoreboard p {
+  font-size: 4rem;
+}
+
+#root .container .team-scores .team1 div .scoreboard h3,
+#root .container .team-scores .team2 div .scoreboard h3 {
+  font-size: 2rem;
+}
+
+#root .container .team-scores .team1 div .penalties ul li,
+#root .container .team-scores .team2 div .penalties ul li {
+  border: 1px solid green;
+  list-style: none;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  opacity: 0.2;
+  border-radius: 5px;
+}
+
+#root .container .team-scores .team1 div .penalties ul li:nth-child(1),
+#root .container .team-scores .team2 div .penalties ul li:nth-child(1) {
+  background-color: red;
+}
+
+#root .container .team-scores .team1 div .penalties ul li:nth-child(2),
+#root .container .team-scores .team2 div .penalties ul li:nth-child(2) {
+  background-color: orangered;
+}
+
+#root .container .team-scores .team1 div .penalties ul li:nth-child(3),
+#root .container .team-scores .team2 div .penalties ul li:nth-child(3) {
+  background-color: yellow;
+}
+
+#root .container .team-scores .team1 div .penalties ul li:hover, #root .container .team-scores .team1 div .penalties ul li:focus,
+#root .container .team-scores .team2 div .penalties ul li:hover,
+#root .container .team-scores .team2 div .penalties ul li:focus {
+  opacity: 1;
+}
+
+#root .container .team-scores .team1 .score-btns,
+#root .container .team-scores .team2 .score-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+#root .container .team-scores .team1 .score-btns button,
+#root .container .team-scores .team2 .score-btns button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 400;
+  width: 70px;
+  border-radius: 50px;
+  background: none;
+  color: #fff;
+  line-height: 40px;
+  max-width: 160px;
+  border: 2px solid #1acdb4;
+  -webkit-transition: all 150ms linear;
+  transition: all 150ms linear;
+  position: relative;
+  overflow: hidden;
+}
+
+#root .container .team-scores .team1 .score-btns button span,
+#root .container .team-scores .team2 .score-btns button span {
+  font-size: 2rem;
 }
 
 #root .footer {
-  height: 10vh;
+  height: 5vh;
   width: 100%;
   background-color: #232b4e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 10px;
+  font-size: 0.8rem;
+}
+
+#root .footer p {
+  font-size: 1rem;
 }

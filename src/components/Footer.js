@@ -4,8 +4,9 @@ export const Footer = () => {
     return (
         <div className="footer">
             <h2>
-                Katapult &copy; 2020
+                Katapult &copy;
             </h2>
+            <p>2020</p>
         </div>
     )
 }

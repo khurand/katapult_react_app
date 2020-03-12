@@ -1,18 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Acme&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-#root {
-  font-family: 'Acme', sans-serif;
-  color: white;
-  font-size: 1rem;
-}
-
-#root .header {
+.header {
   background-color: #232b4e;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,7 +15,7 @@
   width: 100%;
 }
 
-#root .header input {
+.header input {
   border-radius: 50px;
   background: transparent;
   border: 2px solid #1cdfc4;
@@ -39,48 +26,30 @@
   font-size: 1rem;
 }
 
-#root .header ::-webkit-input-placeholder {
+.header ::-webkit-input-placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .header :-ms-input-placeholder {
+.header :-ms-input-placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .header ::-ms-input-placeholder {
+.header ::-ms-input-placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .header ::placeholder {
+.header ::placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .header .fa {
-  font-size: 2rem;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-  color: #1cdfc4;
-  margin-right: 5px;
-}
-
-#root .header .fa:hover, #root .header .fa:focus {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-#root .header .sub-menu {
-  display: none;
-}
-
-#root .container {
+.container {
   background-color: #232b4e;
   height: 85vh;
-  width: 100vw;
+  min-width: 100vw;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,7 +62,7 @@
       justify-content: space-around;
 }
 
-#root .container .main-timer {
+.main-timer {
   font-size: 4rem;
   width: 100%;
   height: 20%;
@@ -113,7 +82,7 @@
   padding-bottom: 30px;
 }
 
-#root .container .main-timer .timer-button {
+.main-timer .timer-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -125,7 +94,7 @@
   margin-top: 15px;
 }
 
-#root .container .per-ses-timer {
+.per-ses-timer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,8 +106,7 @@
   width: 100%;
 }
 
-#root .container .per-ses-timer .periodes {
-  width: 50%;
+.per-ses-timer .periodes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,11 +121,11 @@
   padding: 5px;
 }
 
-#root .container .per-ses-timer .periodes h3 {
+.per-ses-timer .periodes h3 {
   text-align: center;
 }
 
-#root .container .per-ses-timer .periodes ul {
+.per-ses-timer .periodes ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,7 +135,7 @@
   padding: 5px 0px 70px 0;
 }
 
-#root .container .per-ses-timer .periodes ul li {
+.per-ses-timer .periodes ul li {
   list-style: none;
   width: 100%;
   height: 100%;
@@ -178,9 +146,10 @@
       -ms-flex-pack: center;
           justify-content: center;
   opacity: 0.3;
+  font-size: 2.2rem;
 }
 
-#root .container .per-ses-timer .periodes ul li:hover, #root .container .per-ses-timer .periodes ul li:focus, #root .container .per-ses-timer .periodes ul li:active {
+.per-ses-timer .periodes ul li:hover, .per-ses-timer .periodes ul li:focus, .per-ses-timer .periodes ul li:active {
   border: 2px solid #1acdb4;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
@@ -189,7 +158,7 @@
   opacity: 1;
 }
 
-#root .container .per-ses-timer .sessions-timer {
+.per-ses-timer .sessions-timer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,20 +172,14 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 50%;
   padding: 5px;
 }
 
-#root .container .per-ses-timer .sessions-timer h3 {
+.per-ses-timer .sessions-timer h3 {
   font-size: 2rem;
 }
 
-#root .container .per-ses-timer .sessions-timer p {
-  font-size: 2rem;
-  padding-top: 20px;
-}
-
-#root .container .per-ses-timer .sessions-timer .plus-minus {
+.per-ses-timer .sessions-timer .plus-minus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,34 +189,16 @@
   font-size: 2rem;
 }
 
-#root .container .per-ses-timer .sessions-timer .plus-minus p {
-  padding: 1rem 0.5rem 0 0.5rem;
-}
-
-#root .container .per-ses-timer .sessions-timer .plus-minus .val-min-buttons,
-#root .container .per-ses-timer .sessions-timer .plus-minus .val-sec-buttons {
-  list-style: none;
-}
-
-#root .container .per-ses-timer .sessions-timer .plus-minus .val-min-buttons li,
-#root .container .per-ses-timer .sessions-timer .plus-minus .val-sec-buttons li {
-  border: 2px solid #1acdb4;
+.per-ses-timer .sessions-timer .plus-minus p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 50px;
-  font-size: 1rem;
-  margin-top: 10px;
-  border-radius: 50px;
 }
 
-#root .container .per-ses-timer .sessions-timer .sessions-button {
+.per-ses-timer .sessions-timer .sessions-button {
   font-size: 2rem;
   width: 100%;
   display: -webkit-box;
@@ -264,7 +209,7 @@
           justify-content: space-evenly;
 }
 
-#root .container .team-scores {
+.team-scores {
   height: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,8 +223,8 @@
   margin-top: 20px;
 }
 
-#root .container .team-scores .team1,
-#root .container .team-scores .team2 {
+.team-scores .team1,
+.team-scores .team2 {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -294,8 +239,8 @@
           align-items: center;
 }
 
-#root .container .team-scores .team1 input,
-#root .container .team-scores .team2 input {
+.team-scores .team1 input,
+.team-scores .team2 input {
   height: 40px;
   font-size: 1.1rem;
   border-radius: 50px;
@@ -306,32 +251,32 @@
   width: 150px;
 }
 
-#root .container .team-scores .team1 ::-webkit-input-placeholder,
-#root .container .team-scores .team2 ::-webkit-input-placeholder {
+.team-scores .team1 ::-webkit-input-placeholder,
+.team-scores .team2 ::-webkit-input-placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .container .team-scores .team1 :-ms-input-placeholder,
-#root .container .team-scores .team2 :-ms-input-placeholder {
+.team-scores .team1 :-ms-input-placeholder,
+.team-scores .team2 :-ms-input-placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .container .team-scores .team1 ::-ms-input-placeholder,
-#root .container .team-scores .team2 ::-ms-input-placeholder {
+.team-scores .team1 ::-ms-input-placeholder,
+.team-scores .team2 ::-ms-input-placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .container .team-scores .team1 ::placeholder,
-#root .container .team-scores .team2 ::placeholder {
+.team-scores .team1 ::placeholder,
+.team-scores .team2 ::placeholder {
   color: white;
   opacity: 0.9;
 }
 
-#root .container .team-scores .team1 div,
-#root .container .team-scores .team2 div {
+.team-scores .team1 div,
+.team-scores .team2 div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -348,8 +293,8 @@
   height: 80%;
 }
 
-#root .container .team-scores .team1 div .scoreboard,
-#root .container .team-scores .team2 div .scoreboard {
+.team-scores .team1 div .scoreboard,
+.team-scores .team2 div .scoreboard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -359,18 +304,18 @@
           flex-direction: column;
 }
 
-#root .container .team-scores .team1 div .scoreboard p,
-#root .container .team-scores .team2 div .scoreboard p {
+.team-scores .team1 div .scoreboard p,
+.team-scores .team2 div .scoreboard p {
   font-size: 4rem;
 }
 
-#root .container .team-scores .team1 div .scoreboard h3,
-#root .container .team-scores .team2 div .scoreboard h3 {
+.team-scores .team1 div .scoreboard h3,
+.team-scores .team2 div .scoreboard h3 {
   font-size: 2rem;
 }
 
-#root .container .team-scores .team1 div .penalties ul li,
-#root .container .team-scores .team2 div .penalties ul li {
+.team-scores .team1 div .penalties ul li,
+.team-scores .team2 div .penalties ul li {
   border: 1px solid green;
   list-style: none;
   width: 40px;
@@ -380,29 +325,29 @@
   border-radius: 5px;
 }
 
-#root .container .team-scores .team1 div .penalties ul li:nth-child(1),
-#root .container .team-scores .team2 div .penalties ul li:nth-child(1) {
+.team-scores .team1 div .penalties ul li:nth-child(1),
+.team-scores .team2 div .penalties ul li:nth-child(1) {
   background-color: red;
 }
 
-#root .container .team-scores .team1 div .penalties ul li:nth-child(2),
-#root .container .team-scores .team2 div .penalties ul li:nth-child(2) {
+.team-scores .team1 div .penalties ul li:nth-child(2),
+.team-scores .team2 div .penalties ul li:nth-child(2) {
   background-color: orangered;
 }
 
-#root .container .team-scores .team1 div .penalties ul li:nth-child(3),
-#root .container .team-scores .team2 div .penalties ul li:nth-child(3) {
+.team-scores .team1 div .penalties ul li:nth-child(3),
+.team-scores .team2 div .penalties ul li:nth-child(3) {
   background-color: yellow;
 }
 
-#root .container .team-scores .team1 div .penalties ul li:hover, #root .container .team-scores .team1 div .penalties ul li:focus,
-#root .container .team-scores .team2 div .penalties ul li:hover,
-#root .container .team-scores .team2 div .penalties ul li:focus {
+.team-scores .team1 div .penalties ul li:hover, .team-scores .team1 div .penalties ul li:focus,
+.team-scores .team2 div .penalties ul li:hover,
+.team-scores .team2 div .penalties ul li:focus {
   opacity: 1;
 }
 
-#root .container .team-scores .team1 .score-btns,
-#root .container .team-scores .team2 .score-btns {
+.team-scores .team1 .score-btns,
+.team-scores .team2 .score-btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -419,8 +364,8 @@
   height: 60px;
 }
 
-#root .container .team-scores .team1 .score-btns button,
-#root .container .team-scores .team2 .score-btns button {
+.team-scores .team1 .score-btns button,
+.team-scores .team2 .score-btns button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -444,12 +389,12 @@
   overflow: hidden;
 }
 
-#root .container .team-scores .team1 .score-btns button span,
-#root .container .team-scores .team2 .score-btns button span {
+.team-scores .team1 .score-btns button span,
+.team-scores .team2 .score-btns button span {
   font-size: 2rem;
 }
 
-#root .footer {
+.footer {
   height: 5vh;
   width: 100%;
   background-color: #232b4e;
@@ -466,6 +411,19 @@
   font-size: 0.8rem;
 }
 
-#root .footer p {
+.footer p {
+  font-size: 1rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#root {
+  font-family: 'Acme', sans-serif;
+  color: white;
   font-size: 1rem;
 }

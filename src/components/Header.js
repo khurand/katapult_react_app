@@ -16,7 +16,14 @@ export class Header extends Component {
                     <div className="header" style={props}>
                         <h2>Katapult</h2>
                         <input placeholder="Nom de la partie" type="text"></input>
-                        <FontAwesomeIcon icon={faCog} style={{ fontSize: "2rem" }}></FontAwesomeIcon>
+                        <FontAwesomeIcon
+                            icon={faCog}
+                            style={{
+                                fontSize: "2rem"
+                            }}
+                            onClick={this.props.toggle}
+                        >
+                        </FontAwesomeIcon>
                     </div>
                 )}
             </Spring >

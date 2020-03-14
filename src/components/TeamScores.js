@@ -1,7 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Spring } from 'react-spring/renderprops'
 
-export const TeamScores = () => {
+// Functional component
+export function TeamScores() {
+
+    // State in an array of object
+    const [score, setScore] = useState([
+        {
+            id: 1,
+            scoreSet: '0',
+            isChanged: false
+        },       
+        {
+            id: 2,
+            scoreSet: '0',
+            isChanged: false
+        }
+    ]);
+
+    const addPoint = () => {
+        setScore(score + 1)
+    }
+    const removePoint = () => {
+        setScore(score - 1)
+    }
+
+    // const addPoint2 = () => {
+    //     setScore2(score2 + 1)
+    // }
+    // const removePoint2 = () => {
+    //     setScore2(score2 - 1)
+    // }
+
+
     return (
         <Spring
             from={{ opacity: 0, marginLeft: -500 }}
@@ -21,13 +52,13 @@ export const TeamScores = () => {
                                 </ul>
                             </div>
                             <div className="scoreboard">
-                                <p>0</p>
+                                <p>{score}</p>
                                 <h3>Score</h3>
                             </div>
                         </div>
                         <div className="score-btns">
-                            <button><span>+</span></button>
-                            <button><span>-</span></button>
+                            <button onClick={addPoint}><span>+</span></button>
+                            <button onClick={removePoint}><span>-</span></button>
                         </div>
                     </div>
                     <div className="team2">

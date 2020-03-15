@@ -8,6 +8,7 @@ import { TeamScores } from './components/TeamScores';
 import { Footer } from './components/Footer';
 import { Divider } from '@material-ui/core';
 import { Transition, animated } from 'react-spring/renderprops';
+import { GlobalProvider } from './context/GlobalState';
 import './App.css';
 
 class App extends Component {
@@ -20,28 +21,30 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <Header toggle={this.toggle} />
-        <Transition
-          native
-          items={this.state.toggleMenu}
-          from={{ opacity: 0 }}
-          enter={{ opacity: 1 }}
-          leave={{ opacity: 0 }}
-        >
-          {show => show && (props => (
-            <animated.div style={props}>
-              <Menu />
-            </animated.div>
-          ))}
-        </Transition>
-        <div className="container">
-          <MainTimer />
-          <Divider style={{ backgroundColor: "white", height: "2px" }} />
-          <PeriodesSessionTimer />
-          <Divider style={{ backgroundColor: "white", height: "2px" }} />
-          <TeamScores />
-        </div>
-        <Footer />
+        <GlobalProvider>
+          <Header toggle={this.toggle} />
+          <Transition
+            native
+            items={this.state.toggleMenu}
+            from={{ opacity: 0 }}
+            enter={{ opacity: 1 }}
+            leave={{ opacity: 0 }}
+          >
+            {show => show && (props => (
+              <animated.div style={props}>
+                <Menu />
+              </animated.div>
+            ))}
+          </Transition>
+          <div className="container">
+            <MainTimer />
+            <Divider style={{ backgroundColor: "white", height: "2px" }} />
+            <PeriodesSessionTimer />
+            <Divider style={{ backgroundColor: "white", height: "2px" }} />
+            <TeamScores />
+          </div>
+          <Footer />
+        </GlobalProvider>
       </div>
     );
   }

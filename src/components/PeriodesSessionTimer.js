@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Spring } from 'react-spring/renderprops';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faStopCircle } from '@fortawesome/free-regular-svg-icons';
 import IconButton from '@material-ui/core/IconButton';
 import AddOutlined from '@material-ui/icons/AddOutlined';
 import RemoveOutlined from '@material-ui/icons/RemoveOutlined';
+import { GlobalContext } from '../context/GlobalState';
 
 
 export const PeriodesSessionTimer = () => {
+    const { chronos } = useContext(GlobalContext);
+
     return (
         <Spring
             from={{ opacity: 0, marginLeft: -500 }}
@@ -44,7 +47,7 @@ export const PeriodesSessionTimer = () => {
 
                             </ul>
                             <p>
-                                00:00
+                            { chronos[1].minuts } : { chronos[1].seconds }
                             </p>
                             <ul className="val-sec-buttons">
                                 <li style={{ color: "white", listStyle: "none" }}>

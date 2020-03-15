@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Spring } from 'react-spring/renderprops';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faStopCircle } from '@fortawesome/free-regular-svg-icons';
+import { GlobalContext } from '../context/GlobalState';
+
 
 // Functional component
 export const MainTimer = () => {
+    // Importe le globalContext pour que le component MainTimer ait accès au state global
+    const { chronos } = useContext(GlobalContext);
+    const { startTimer, pauseTimer, stopTimer } = useContext(GlobalContext);
+
     return (
         <Spring
             from={{ opacity: 0, marginLeft: -500 }}
@@ -14,13 +20,13 @@ export const MainTimer = () => {
             {props => (
                 <div className="main-timer" style={props}>
                     <p>
-                        60:00
+                        { chronos[0].minuts } : { chronos[0].seconds }
                     </p>
 
                     <div className="timer-button">
-                        <FontAwesomeIcon icon={faStopCircle} />
-                        <FontAwesomeIcon icon={faPauseCircle} />
-                        <FontAwesomeIcon icon={faPlayCircle} />
+                        <FontAwesomeIcon icon={faPlayCircle} onClick={() => startTimer()}/>
+                        <FontAwesomeIcon icon={faPauseCircle} onClick={() => pauseTimer()}/>
+                        <FontAwesomeIcon icon={faStopCircle} onClick={() => stopTimer()}/>
                     </div>
                 </div>
             )}

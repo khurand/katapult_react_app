@@ -3,6 +3,7 @@ import { Spring } from 'react-spring/renderprops';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faStopCircle } from '@fortawesome/free-regular-svg-icons';
 
+// Functional component
 export const MainTimer = () => {
     return (
         <Spring

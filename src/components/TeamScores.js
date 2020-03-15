@@ -5,33 +5,17 @@ import { Spring } from 'react-spring/renderprops'
 export function TeamScores() {
 
     // State in an array of object
-    const [score, setScore] = useState([
-        {
-            id: 1,
-            scoreSet: '0',
-            isChanged: false
-        },       
-        {
-            id: 2,
-            scoreSet: '0',
-            isChanged: false
-        }
-    ]);
+    const [score, setScore] = useState(0);
 
     const addPoint = () => {
         setScore(score + 1)
     }
     const removePoint = () => {
-        setScore(score - 1)
+        // Empêche d'avoir des scores négatifs
+        if(score > 0){
+            setScore(score - 1)
+        }
     }
-
-    // const addPoint2 = () => {
-    //     setScore2(score2 + 1)
-    // }
-    // const removePoint2 = () => {
-    //     setScore2(score2 - 1)
-    // }
-
 
     return (
         <Spring

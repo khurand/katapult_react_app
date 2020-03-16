@@ -8,8 +8,7 @@ import { GlobalContext } from '../context/GlobalState';
 // Functional component
 export const MainTimer = () => {
     // Importe le globalContext pour que le component MainTimer ait accès au state global
-    const { chronos } = useContext(GlobalContext);
-    const { startTimer, pauseTimer, stopTimer } = useContext(GlobalContext);
+    const { chronos, startTimer, pauseTimer, stopTimer } = useContext(GlobalContext);
 
     return (
         <Spring
@@ -20,7 +19,7 @@ export const MainTimer = () => {
             {props => (
                 <div className="main-timer" style={props}>
                     <p>
-                        { chronos[0].minuts } : { chronos[0].seconds }
+                        { chronos.minutes } : { chronos.seconds }
                     </p>
 
                     <div className="timer-button">

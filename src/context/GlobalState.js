@@ -3,10 +3,8 @@ import AppReducer from './AppReducer'
 
 // Initial State
 const initialState = {
-    chronos: [
-        { minuts: '60', seconds: '00' },
-        { minuts: '00', seconds: '00' }  
-    ]   
+    chronos: { minutes: '60', seconds: '00' }
+        // { minuts: '00', seconds: '00' }  
 }
 
 /* create context:
@@ -21,17 +19,17 @@ export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     //Actions
-    function startTimer(id){
+    function startTimer(){
         dispatch({
             type: 'START_TIMER',
         })
     }
-    function pauseTimer(id){
+    function pauseTimer(){
         dispatch({
             type: 'PAUSE_TIMER',
         })
     }
-    function stopTimer(id){
+    function stopTimer(){
         dispatch({
             type: 'STOP_TIMER',
         })

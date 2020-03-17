@@ -2,10 +2,8 @@ import React, {createContext, useReducer} from 'react';
 import AppReducer from './AppReducer'
 
 // Initial State
-const initialState = {
-    chronos: { minutes: '60', seconds: '00' }
-        // { minuts: '00', seconds: '00' }  
-}
+const initialState = { hour: 1, minutes: 0, seconds: 0 }
+        // { P_minuts: '00', P_seconds: '00' }  
 
 /* create context:
 export pour aaporter le context à d'autres components */
@@ -38,7 +36,7 @@ export const GlobalProvider = ({children}) => {
     // Retourne tout le state et les actions aux components enfants du provider
     return(
         <GlobalContext.Provider value={{
-            chronos: state.chronos,
+            state,
             startTimer,
             pauseTimer,
             stopTimer

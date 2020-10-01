@@ -1,54 +1,88 @@
-import React, { useContext } from 'react'
-import { Spring } from 'react-spring/renderprops';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle, faStopCircle } from '@fortawesome/free-regular-svg-icons';
-import { GlobalContext } from '../context/GlobalState';
-import Countdown,  { zeroPad } from 'react-countdown'
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
+const MainTimer = () => {
+  // state = {
+  //   heure: 1,
+  //   minutes: 0,
+  //   secondes: 0,
+  // };
 
-// Functional component
-export const MainTimer = () => {
-    // Importe le globalContext pour que le component MainTimer ait accès au state global
-    const { startTimer, pauseTimer, stopTimer } = useContext(GlobalContext);
-    const Completionist = () => <span>Partie terminée !</span>;
+  // static propTypes = {};
+  const [isTicking, setIsTicking] = useState(false);
+  const [minutes, setMinutes] = useState(60);
+  const [secondes, setSecondes] = useState(0);
 
-    // Renderer callback with condition
-    const renderer = ({ hours, minutes, seconds, completed }) => {
-        if (completed) {
-        // Render a completed state
-        return <Completionist />;
-        } else {
-        // Render a countdown
-         return <span>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</span>
-        }
-    };
+  // const format = (time) => {
+  //   let seconds = setSecondes(time % 60);
+  //   let minutes = setMinutes(Math.floor(time / 60));
+  //   minutes = minutes.toString().length === 1 ? "0" + minutes : minutes;
+  //   seconds = seconds.toString().length === 1 ? "0" + seconds : seconds;
+  //   return minutes + ":" + seconds;
+  // };
 
-    
-    return (
-        <Spring
-            from={{ opacity: 0, marginLeft: -500 }}
-            to={{ opacity: 1, marginLeft: 0 }}
-            config={{ delay: 400, duration: 400 }}
-        >
-            {props => (
-                <div className="main-timer" style={props}>
-                    {/* <p>
-                    { `0${ state.hour }` } : 
-                    { `0${ state.minutes }` } : 
-                    { state.seconds < 10 ? `0${ state.seconds }` : state.seconds }
-                    </p> */}
+  const toggle = () => {
+    setIsTicking(!isTicking);
+  };
 
-                    <Countdown date={Date.now() + 3600000} renderer={renderer} autoStart={true}>
-                        <Completionist />
-                    </Countdown>
+  const reset = () => {
+    setIsTicking(false);
+    setMinutes(60);
+    setSecondes(0);
+  };
 
-                    <div className="timer-button">
-                        <FontAwesomeIcon icon={faPlayCircle} onClick={() => startTimer()}/> 
-                        <FontAwesomeIcon icon={faPauseCircle} onClick={() => pauseTimer()}/>
-                        <FontAwesomeIcon icon={faStopCircle} onClick={() => stopTimer()}/>
-                    </div>
-                </div>
-            )}
-        </Spring>
-    )
-}
+  const start = () => {
+    if (secondes === -1) {
+      setSecondes(59);
+    }
+  };
+
+  const min = () => {
+    if (secondes === 59) {
+      setMinutes(minutes - 1);
+    }
+  };
+
+  const end = () => {
+    if (minutes === 0 && secondes === 0) {
+      setIsTicking(false);
+    }
+  };
+
+  useEffect(() => {
+    start();
+    min();
+    let secondesInterval = null;
+    if (isTicking) {
+      secondesInterval = setInterval(() => {
+        setSecondes(secondes - 1);
+      }, 1000);
+    } else if (!isTicking && secondes !== 0) {
+      clearInterval(secondesInterval);
+    }
+    end();
+    return () => clearInterval(secondesInterval);
+  }, [isTicking, secondes]);
+
+  return (
+    <div className='main-timer'>
+      <p>
+        {minutes < 10 ? `0${minutes}` : minutes} :{" "}
+        {secondes < 10 ? `0${secondes}` : secondes}
+      </p>
+
+      <div className='timer-button'>
+        <button onClick={toggle}>{isTicking ? "Pause" : "Start"}</button>
+        <button onClick={reset}>reset</button>
+      </div>
+    </div>
+  );
+};
+
+MainTimer.propTypes = {
+  // title: PropTypes.string.isRequired,
+  // heading: PropTypes.string.isRequired,
+  // description: PropTypes.string.isRequired,
+};
+
+export default MainTimer;
